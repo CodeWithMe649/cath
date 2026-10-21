@@ -1,0 +1,157 @@
+/* Reset & Base Setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #ffe6eb 0%, #ffb6c1 50%, #ff8da1 100%);
+    font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Container for JS floating particles */
+  #falling-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  /* Card Styling */
+  .card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(214, 51, 132, 0.25);
+    text-align: center;
+    max-width: 480px;
+    width: 90%;
+    border: 3px solid #ffccd5;
+    z-index: 10;
+    animation: cardEntrance 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+  }
+  
+  @keyframes cardEntrance {
+    0% { opacity: 0; transform: scale(0.8) translateY(30px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  
+  /* Teddy Bear with Rose Animation */
+  .teddy-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+  
+  .teddy {
+    font-size: 85px;
+    display: inline-block;
+    animation: teddyBounce 2.5s infinite ease-in-out;
+  }
+  
+  .rose-held {
+    font-size: 35px;
+    position: absolute;
+    bottom: 5px;
+    right: -10px;
+    animation: roseSway 2.5s infinite ease-in-out;
+  }
+  
+  @keyframes teddyBounce {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-10px) rotate(3deg); }
+  }
+  
+  @keyframes roseSway {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+  }
+  
+  /* Headings & Text */
+  h1 {
+    color: #d63384;
+    font-size: 28px;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+  }
+  
+  .sweet-message {
+    color: #6a1b4d;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+  }
+  
+  /* Interactive Button */
+  #surprise-btn {
+    background: linear-gradient(45deg, #ff4d6d, #ff758f);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(255, 77, 109, 0.4);
+    transition: all 0.3s ease;
+  }
+  
+  #surprise-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 77, 109, 0.6);
+  }
+  
+  #surprise-btn:active {
+    transform: translateY(1px);
+  }
+  
+  /* Hidden Surprise Text */
+  .hidden {
+    display: none;
+  }
+  
+  #extra-message {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #c7254e;
+    animation: fadeIn 0.8s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Falling Item Particles (JS Driven) */
+  .particle {
+    position: absolute;
+    top: -60px;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear forwards;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(105vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
